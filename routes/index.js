@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var mysql = require("mysql");
-var Jas = require("jas");
+var Jas = require("./js/jas");
 var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
