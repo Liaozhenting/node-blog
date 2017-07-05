@@ -21,9 +21,7 @@ var handleError = function(err) {
 };
 connection.connect(handleError);
 connection.on("error", handleError);
-//查询world表
 
-/* GET home page. */
 
 router.get("/", function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
