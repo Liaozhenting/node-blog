@@ -22,9 +22,9 @@ const handleError = (err)=> {
 connection.connect(handleError);
 connection.on("error", handleError);
 /* GET users listing. */
-let data=['中国','Time','Bob','Mobile']
+
 router.get('/', (req, res, next)=> {
-  res.send(data);
+  
 });
 
 router.get('/users_info', (req, res, next) =>{
