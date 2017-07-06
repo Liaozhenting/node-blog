@@ -35,7 +35,6 @@ router.get('/', (req, res, next) =>{
     if (err) throw err;
 
     data = rows;
-    console.log(data);
     flow.trigger("A");
   });
 

@@ -26,7 +26,9 @@ router.get("/", (req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   let data;
   let flow = new Jas();
-  connection.query("SELECT * FROM users", function(err, rows, fields) {
+  let maxResult = req.query.maxResult || 10;
+  let firstResult = req.query.firstResult || 0;
+  connection.query("SELECT * FROM users order by user_id limit "+firstResult+","+maxResult, function(err, rows, fields) {
     if (err) throw err;
 
     data = rows;
@@ -45,9 +47,7 @@ router.get("/edit", (req, res, next) => {
   let flow = new Jas();
     //   console.log(req);
   let params = req.query;
-  console.log(params);
   let user_id = req.query.user_id;
-  console.log(user_id);
   let password = req.query.password || '无';
   let question = req.query.question || '无';
   let answer = req.query.answer || '无';
