@@ -28,7 +28,7 @@ router.get("/", (req, res, next) => {
   let flow = new Jas();
   let maxResult = req.query.maxResult || 10;
   let firstResult = req.query.firstResult || 0;
-  connection.query("SELECT * FROM users order by user_id limit "+firstResult+","+maxResult, function(err, rows, fields) {
+  connection.query("SELECT * FROM users order by user_id DESC limit "+firstResult+","+maxResult, function(err, rows, fields) {
     if (err) throw err;
 
     data = rows;
